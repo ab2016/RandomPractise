@@ -82,13 +82,13 @@ public class CycleDetection {
 			return true;
 
 		// Convert graph presentation from edges to indegree of adjacent list.
-		int noDependentCourse[] = new int[numCourses];
+		int countOfDependentCourses[] = new int[numCourses];
 		for (int i = 0; i < prerequisites.length; i++)
-			noDependentCourse[prerequisites[i][0]]++;
+			countOfDependentCourses[prerequisites[i][0]]++;
 
 		Queue<Integer> queue = new LinkedList<Integer>();
 		for (int i = 0; i < numCourses; i++)
-			if (noDependentCourse[i] == 0)
+			if (countOfDependentCourses[i] == 0)
 				queue.add(i);
 
 		int cnt = 0;
@@ -97,9 +97,9 @@ public class CycleDetection {
 			cnt++;
 			for (int i = 0; i < prerequisites.length; i++) {
 				if (prerequisites[i][1] == prerequisite) {
-					noDependentCourse[prerequisites[i][0]]--;
+					countOfDependentCourses[prerequisites[i][0]]--;
 					// checks all the dependent courses have already been taken
-					if (noDependentCourse[prerequisites[i][0]] == 0) {
+					if (countOfDependentCourses[prerequisites[i][0]] == 0) {
 						queue.add(prerequisites[i][0]);
 					}
 				}
