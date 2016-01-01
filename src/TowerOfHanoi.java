@@ -1,4 +1,4 @@
-
+// ctci chapter 3 question 4
 public class TowerOfHanoi {
 
 	public static void main(String[] args) {
@@ -41,7 +41,6 @@ public class TowerOfHanoi {
 			move(sourceStack, helpStack);
 			move(destStack, helpStack);
 		}
-
 	}
 
 	private static void move(DiscStack r, DiscStack t) {
@@ -127,5 +126,4 @@ class Node {
 		this.data = i;
 		this.next = null;
 	}
-
 }
